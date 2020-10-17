@@ -1,27 +1,38 @@
 <?php
 
-class Vechicle {
-    public $model;
-    public $velocity;
-    public $color;
+class Login {
 
-    public function move(){
-        echo 'moving<hr/>';
+    private $email;
+    private $password;
+
+    public function getEmail(){
+        return $this->email;
     }
-    
-    public function stop(){
-        echo "stoped";
+    public function setEmail($email){
+        $cleanEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $this->email = $cleanEmail;
     }
-    public function info(){
-        echo $this->model."</br>";
-        echo $this->color."</br>";
-        echo intval($this->velocity)."</br>";
+    public function getPassword(){
+        return $this->password;
+    }
+    public function setPassword($password){
+        $this->password = $password;
+    }
+
+    public function verify(){
+      if($this->email == "teste@teste.com" && $this->password == "1234"):
+        echo"access granted";
+      else:
+        echo "access denied";
+      endif;
     }
 }
 
-$car = new Vechicle();
-$car->model = "Peugeot";
-$car->velocity = "60km/h";
-$car->color = 'red';
-$car->info();
+$logar = new Login();
+$logar->setEmail("ateste()/@teste.com");
+$logar->setPassword("1234");
+$logar->verify();
+echo "<br/>";
+echo $logar->getEmail();
+
 ?>
