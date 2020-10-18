@@ -13,8 +13,17 @@ class Vechicle{
   public function getModel(){
     return $this->model;
   }
-  public function move(){
+  private function move(){
     echo $this->vechicle." is moving <br/>";
+  }
+  // Só tenho acesso externo à classe se houver um método publico que acesse ela e retorne seu valor/tarefa.
+  // Esse metodo publico acessa o privado move
+  public function ismoving(){
+    if($this->move() != "Stoped"):
+      echo "MOVING!!!";
+    else:
+      echo 'Stoped :(';
+    endif;
   }
 
   public function stop(){
@@ -44,5 +53,6 @@ class Motorcicle extends Vechicle{
 $truck = new Vechicle();
 $truck->setModel("Volkswagem");
 echo $truck->getModel();
-var_dump($truck);
+$truck->ismoving();
+
 ?> 
