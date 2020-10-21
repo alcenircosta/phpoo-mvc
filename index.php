@@ -1,21 +1,11 @@
 <?php
- class Pessoa {
-   const nome = "Alcenir ";
+ class Login {
+   public static $user;
 
-   public function showName(){
-     echo self::nome;
+   public static function checkLogin(){
+     echo "O usuário ".self::$user." está logado";
    }
  }
-
-class Alcenir extends Pessoa {
-  const nome = "Costa";
-
-  public function showName(){
-    echo parent::nome;
-    echo self::nome;
-  }
-}
-
-$alcenir = new Alcenir();
-$alcenir->showName();
+Login::$user = 'Alcenir';
+ Login::checkLogin();
 ?> 
