@@ -1,11 +1,22 @@
 <?php
- class Login {
-   public static $user;
-
-   public static function checkLogin(){
-     echo "O usuário ".self::$user." está logado";
+ class Animal {
+   public function andar(){
+     echo "O animal andou <br/>";
+   }
+   public function correr(){
+     echo "O animal Correu";
    }
  }
-Login::$user = 'Alcenir';
- Login::checkLogin();
-?> 
+ class Cavalo extends Animal{
+  public function andar(){
+    echo "O cavalo andou <br/>";
+  }
+  public function andarRapido(){
+    $this->correr();
+  }
+ }
+ $animal = new Cavalo();
+ $animal->andar();
+ $animal->andarRapido();
+ 
+ ?> 
