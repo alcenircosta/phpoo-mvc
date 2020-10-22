@@ -1,39 +1,24 @@
 <?php
 
-class Produtos {
+class Pessoa {
+     public function atribuinome($nome){
+         return " O nome da pessoa é ".$nome;
+     }
+}
+
+class Exibe {
+    public $pessoa;
     public $nome;
-    public $valor;
-
-    function __construct($nome,$valor){
+     
+    function __construct($nome){
+        $this->pessoa = new Pessoa();
         $this->nome = $nome;
-        $this->valor = $valor;
+    }
+    public function exibeNome(){
+        echo $this->pessoa->atribuinome($this->nome);
     }
 }
 
-class Carrinho {
-    public $produtos;
-
-    public function adiciona( Produtos $produto){
-        $this->produtos[] = $produto;
-    }
-
-    public function exibe() {
-        foreach($this->produtos as $produto){
-            echo $produto->nome."<br>";
-            echo $produto->valor."<br>";
-        }
-    }
-}
-
-$sabonete = new Produtos("Sabonete", "2,50");
-$condicionador = new Produtos("Condicionador", "12,50");
-$shampoo = new Produtos("Shampoo", "8,50");
-
-
-$carrinho = new Carrinho();
-$carrinho->adiciona($sabonete);
-$carrinho->adiciona($condicionador);
-$carrinho->adiciona($shampoo);
-
-$carrinho->exibe();
+$exibe = new Exibe("Alcenir");
+$exibe->exibeNome();
 ?> 
