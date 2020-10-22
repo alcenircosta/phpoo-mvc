@@ -1,26 +1,9 @@
 <?php
- 
- interface Crud {
-   public function create();
-   public function read();
-   public function delete();
-   public function update();
- }
+require '_classes/Produto.php'; 
+require '_models/Produto.php'; 
+use _models\Produto as ProductModels; 
+use _classes\Produto as ProductClasses; 
 
- class Noticias implements Crud {
-  public function create(){
-
-  }
-  public function read(){
-
-  }
-  public function delete(){
-
-  }
-  public function update(){
-    
-  }
-
- }
-
+$produto = new ProductModels();
+$produto->mostrarDetalhes();
  ?> 
