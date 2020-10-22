@@ -1,20 +1,39 @@
 <?php
 
-class Newsletter {
-     public function cadastrarEmail ($email){
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
-            throw new Exception("O E-mail informado é invalido!", 1234);
-        else:
-            echo "E-mail cadastrado com sucesso!";
-        endif;
-     }
+class Produtos {
+    public $nome;
+    public $valor;
+
+    function __construct($nome,$valor){
+        $this->nome = $nome;
+        $this->valor = $valor;
+    }
 }
 
-$newsletter = new Newsletter();
+class Carrinho {
+    public $produtos;
 
-try{
-$newsletter->cadastrarEmail('alcenir.1994@');
-} catch(Exception $e) {
-    echo "Mensagem: ".$e->getMessage()."<br>Código: ".$e->getCode()."<br>Linha: ".$e->getLine()."<br>Arquivo: ".$e->getFile();
+    public function adiciona( Produtos $produto){
+        $this->produtos[] = $produto;
+    }
+
+    public function exibe() {
+        foreach($this->produtos as $produto){
+            echo $produto->nome."<br>";
+            echo $produto->valor."<br>";
+        }
+    }
 }
+
+$sabonete = new Produtos("Sabonete", "2,50");
+$condicionador = new Produtos("Condicionador", "12,50");
+$shampoo = new Produtos("Shampoo", "8,50");
+
+
+$carrinho = new Carrinho();
+$carrinho->adiciona($sabonete);
+$carrinho->adiciona($condicionador);
+$carrinho->adiciona($shampoo);
+
+$carrinho->exibe();
 ?> 
