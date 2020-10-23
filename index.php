@@ -1,24 +1,21 @@
 <?php
 
 class Pessoa {
-     public function atribuinome($nome){
-         return " O nome da pessoa é ".$nome;
-     }
-}
-
-class Exibe {
-    public $pessoa;
-    public $nome;
-     
-    function __construct($nome){
-        $this->pessoa = new Pessoa();
-        $this->nome = $nome;
+    private $nome;
+    private $idade;
+    public function __set($nome,$valor){
+        $this->nome = $valor;
     }
-    public function exibeNome(){
-        echo $this->pessoa->atribuinome($this->nome);
+    public function __get($nome){
+        return $this->nome;
     }
-}
 
-$exibe = new Exibe("Alcenir");
-$exibe->exibeNome();
+
+}
+$pessoa = new Pessoa();
+$pessoa->nome="Alcenir";
+var_dump($pessoa);
+
+echo $pessoa->nome;
+
 ?> 
