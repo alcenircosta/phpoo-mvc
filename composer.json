@@ -1,13 +1,5 @@
 {
-    "name": "nodestudio/composer",
-    "description": "Composer test",
     "require": {
-        "pagseguro/pagseguro-php-sdk": "^6.0"
-    },
-    "authors": [
-        {
-            "name": "Alcenir",
-            "email": "alcenir.1994@gmail.com"
-        }
-    ]
+        "cocur/slugify" : "4.0.0"
+    }
 }

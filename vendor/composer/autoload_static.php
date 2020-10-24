@@ -4,27 +4,27 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit81a5bb91f77fcd3837a3ba3a9ad3317d
+class ComposerStaticInit64b81c96989622040c113c0b7e45bb43
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'C' => 
         array (
-            'PagSeguro\\' => 10,
+            'Cocur\\Slugify\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PagSeguro\\' => 
+        'Cocur\\Slugify\\' => 
         array (
-            0 => __DIR__ . '/..' . '/pagseguro/pagseguro-php-sdk/source',
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit81a5bb91f77fcd3837a3ba3a9ad3317d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit81a5bb91f77fcd3837a3ba3a9ad3317d::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit64b81c96989622040c113c0b7e45bb43::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit64b81c96989622040c113c0b7e45bb43::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
