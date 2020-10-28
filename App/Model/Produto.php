@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+// classe com todos os atributos referente a tabela produto no DB
 
 class Produto {
     private $id, $nome, $descricao;
